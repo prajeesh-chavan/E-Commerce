@@ -55,9 +55,9 @@ const Cart = () => {
 
                      <div className='mt-16'>
                         <p className='font-medium text-gray-600'>If you have any promocode , Enter here:</p>
-                       <form action="" className='flex items-center mt-1'>
+                       <form action="" className='flex items-center mt-1 flex-wrap'>
                         <input type="text" className='p-2 bg-gray-300 rounded-md mr-2 '/>
-                        <input type="submit" className='px-4 py-1 bg-blue-500 rounded-md text-lg cursor-pointer hover:bg-blue-600 flex justify-center items-center'/>
+                        <input type="submit" className=' max-sm:mt-5 px-4 py-1 bg-blue-500 rounded-md text-lg cursor-pointer hover:bg-blue-600 flex justify-center items-center'/>
                        </form>
 
                      </div>
