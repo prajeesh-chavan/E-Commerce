@@ -1,8 +1,8 @@
+
 import React, { useEffect, useState } from 'react'
-import data from '../data/watches'
+import data from '../data'
 import CartRow from '../components/CartRow'
 import { FaRupeeSign } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
 
 const Cart = () => {
     const [totalSum,settotalsum] = useState(0)
@@ -18,7 +18,7 @@ const Cart = () => {
 
     return (
         <section className='w-full px-10 '>
-            <div className=' max-w-[1000px] mt-[50px] h-[80vh] overflow-y-auto no-scrollbar  relative '>
+            <div className=' max-w-[1000px] mt-[90px] h-[80vh] overflow-y-auto no-scrollbar  relative'>
                 <div className='h-12 flex justify-between border-b-2 border-black max-sm:hidden sm:sticky top-0 bg-secondary px-2 '>
                     <p className=' flex justify-center items-center font-medium'>Products</p>
                     <p className='basis-[200px]  flex justify-center items-center font-medium'>Title</p>
@@ -65,6 +65,6 @@ const Cart = () => {
             </div>
         </section>
     )
-}
 
+}
 export default Cart
