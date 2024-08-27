@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import data from '../data'
+import {cart} from '../data'
 import CartRow from '../components/CartRow'
 import { FaRupeeSign } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ const Cart = () => {
     const [Shipping,setShipping] = useState(100)
     useEffect(()=>{
         function calculatePrice(){
-            let totalsum = data.reduce((accumulator, product) => {
+            let totalsum = cart.reduce((accumulator, product) => {
                 return accumulator + product.Price * product.Quantity;
               }, 0);
             settotalsum(totalsum) }
@@ -28,7 +28,7 @@ const Cart = () => {
                     <p className='basis-[70px]  flex justify-center items-center font-medium'>Remove</p>
                 </div>
                 
-                 {data.map((product, index) => (
+                 {cart.map((product, index) => (
                         <CartRow key={index} img={product.image} title={product.title} price={product.Price} Quantity={product.Quantity} />
                 ))}
                  

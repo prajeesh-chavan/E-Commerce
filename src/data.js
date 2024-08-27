@@ -1,83 +1,159 @@
-import watch from './assets/Smartwatch.png'
+import watch from "./assets/Smartwatch.png";
 
+// Data arrays for brands and sizes
+const brands = ["Apple", "Samsung", "Garmin", "Fitbit", "Amazfit"];
+const colors = ["Black", "Silver", "Gold", "Rose Gold", "Blue"];
+const sizes = ["38mm", "40mm", "42mm", "44mm"];
+const features = [
+  "GPS",
+  "Heart Rate Monitor",
+  "Water Resistant",
+  "Sleep Tracking",
+  "Bluetooth",
+];
 
-export default [
+const cart = [
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+  {
+    title: "Titan x",
+    Price: 250,
+    Quantity: 3,
+    image: watch,
+  },
+];
+
+const products = [
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "SmartWatch Pro Max",
+      discount: "15%",
+      price: 4500,
+      ratings: 4.5,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "FitTracker Elite",
+      discount: "20%",
+      price: 3200,
+      ratings: 4.3,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "TechTime Advanced",
+      discount: "10%",
+      price: 4999,
+      ratings: 4.7,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "HealthWave Plus",
+      discount: "18%",
+      price: 3800,
+      ratings: 4.4,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "ActiveLife SmartFit",
+      discount: "25%",
+      price: 2800,
+      ratings: 4.1,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "PulseSync Pro",
+      discount: "12%",
+      price: 4200,
+      ratings: 4.6,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "ChronoFit Pro",
+      discount: "22%",
+      price: 3500,
+      ratings: 4.2,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "MoveTech Ultra",
+      discount: "30%",
+      price: 1500,
+      ratings: 4.0,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "VitaPulse X",
+      discount: "17%",
+      price: 4000,
+      ratings: 4.5,
     },
     {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
+      title: "SmartTime Explorer",
+      discount: "28%",
+      price: 2900,
+      ratings: 4.3,
     },
-    {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
-    },
-    {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
-    },
-    {
-        "title":"Titan x",
-        "Price":250,
-        "Quantity":3,
-        "image":watch
-    },
-]
+  ];
+
+export { cart, brands, colors, sizes, features, products};
