@@ -18,6 +18,7 @@ function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12); // No of products per page
   const [sortedproducts, setSortedProducts] = useState(products);
+  const [searchValue, setSearchValue] = useState("");
 
   const sortMenuRef = useRef(null);
 
@@ -42,6 +43,11 @@ function Products() {
       setSortedProducts(products.sort((b, a) => b.price - a.price));
     else setSortedProducts(products);
     setIsSortMenuVisible(false);
+  };
+
+  const handleSearch = () => {
+    
+     searchValue != ""? setSortedProducts(products.filter(item => item.title.includes(searchValue))): setSortedProducts(products);
   };
 
   const handleClickOutside = (event) => {
@@ -141,7 +147,7 @@ function Products() {
           <div className="relative" ref={sortMenuRef}>
             {/* Sort */}
             <button
-              className="bg-white rounded-lg py-2 px-4 border-2 border-gray-200 hover:bg-gray-50 transition"
+              className="hidden md:block bg-white rounded-lg py-2 px-4 border-2 border-gray-200 hover:bg-gray-50 transition"
               onClick={handleSortClick}
             >
               Sort By
@@ -185,17 +191,20 @@ function Products() {
               type="text"
               name="search"
               placeholder="Search"
+              value={searchValue}
+              onChange={(e)=>setSearchValue(e.target.value)}
             />
             <button
               type="submit"
               className="absolute right-0 top-0 mt-2 mr-2 hover:scale-95 transition"
+              onClick={handleSearch}
             >
               <IoIosSearch size="24" />
             </button>
           </div>
 
           {/* Filter */}
-          <div className="relative">
+          <div className="relative hidden md:block">
             <button
               className="bg-white rounded-lg py-2 px-4 border-2 border-gray-200 hover:bg-gray-50 transition"
               onClick={handleFilterClick}
@@ -411,6 +420,7 @@ function Products() {
       </div>
 
       {/* Pagination Controls */}
+      {sortedproducts.length>=12 &&
       <div className="flex justify-center py-8">
         <button
           className="cursor-pointer hover:bg-gray-100 mx-2 px-2 py-2 rounded-l-lg"
@@ -440,6 +450,7 @@ function Products() {
           <IoIosArrowForward size="24" />
         </button>
       </div>
+}
     </>
   );
 }
