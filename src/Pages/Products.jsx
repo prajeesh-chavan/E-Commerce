@@ -193,6 +193,7 @@ function Products() {
               placeholder="Search"
               value={searchValue}
               onChange={(e)=>setSearchValue(e.target.value)}
+              onKeyUp={(e)=>{e.key==='Enter' && handleSearch()}}
             />
             <button
               type="submit"
