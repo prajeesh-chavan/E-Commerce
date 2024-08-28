@@ -17,6 +17,7 @@ function Products() {
   const [selectedFilterOption, setSelectedFilterOption] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12); // No of products per page
+  const [sortedproducts, setSortedProducts] = useState(products);
 
   const sortMenuRef = useRef(null);
 
@@ -30,6 +31,16 @@ function Products() {
 
   const handleSortOptionClick = (option) => {
     setSelectedSortOption(option);
+    
+    if (selectedSortOption === "R-HTL")
+      setSortedProducts(products.sort((a, b) => b.ratings - a.ratings));
+    else if (selectedSortOption === "R-LTH")
+      setSortedProducts(products.sort((b, a) => b.ratings - a.ratings));
+    else if (selectedSortOption === "P-HTL")
+      setSortedProducts(products.sort((a, b) => b.price - a.price));
+    else if (selectedSortOption === "P-LTH")
+      setSortedProducts(products.sort((b, a) => b.price - a.price));
+    else setSortedProducts(products);
     setIsSortMenuVisible(false);
   };
 
@@ -112,7 +123,7 @@ function Products() {
   // Pagination logic
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
+  const currentProducts = sortedproducts.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -141,25 +152,25 @@ function Products() {
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
                 <li
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionClick("Price: Low to High")}
+                  onClick={() => handleSortOptionClick("P-LTH")}
                 >
                   Price: Low to High
                 </li>
                 <li
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionClick("Price: High to Low")}
+                  onClick={() => handleSortOptionClick("P-HTL")}
                 >
                   Price: High to Low
                 </li>
                 <li
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionClick("Ratings: High to Low")}
+                  onClick={() => handleSortOptionClick("R-HTL")}
                 >
                   Ratings: High to Low
                 </li>
                 <li
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionClick("Ratings: Low to High")}
+                  onClick={() => handleSortOptionClick("R-LTH")}
                 >
                   Ratings: Low to High
                 </li>
@@ -388,13 +399,13 @@ function Products() {
       {/* Products */}
       <div className="p-5 lg:px-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {currentProducts.map((product) => (
-          <Link to="/product-details">
-          <ProductCard
-            title={product.title}
-            discount={product.discount}
-            price={product.price}
-            ratings={product.ratings}
-          />
+          <Link to="/product-details" key={product.id}>
+            <ProductCard
+              title={product.title}
+              discount={product.discount}
+              price={product.price}
+              ratings={product.ratings}
+            />
           </Link>
         ))}
       </div>
