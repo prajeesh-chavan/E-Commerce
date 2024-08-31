@@ -4,7 +4,7 @@ import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
-import SignUp from "./Pages/SignUp";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -24,10 +24,10 @@ function App() {
           path: "login",
           element: <Login />,
         },
-        {
-          path: "signup",
-          element: <SignUp />,
-        },
+        // {
+        //   path: "signup",
+        //   element: <SignUp />,
+        // },
       ],
     },
   ]);
