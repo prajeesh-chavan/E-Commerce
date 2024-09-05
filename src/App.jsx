@@ -4,10 +4,10 @@ import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
-import SignUp from "./Pages/SignUp";
 import Products from "./Pages/Products";
 import ProductDetails from "./Pages/ProductDetails";
 import Cart from "./Pages/Cart";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -16,7 +16,7 @@ function App() {
       element: <Layout />,
       children: [
         {
-          path: "",
+          path: "/home",
           element: <Home />,
         },
         {
@@ -27,10 +27,10 @@ function App() {
           path: "login",
           element: <Login />,
         },
-        {
-          path: "signup",
-          element: <SignUp />,
-        },
+        // {
+        //   path: "signup",
+        //   element: <SignUp />,
+        // },
         {
           path: "products",
           element: <Products />,
@@ -43,6 +43,10 @@ function App() {
           path: "cart",
           element: <Cart />,
         },
+        // {
+        //   path: "signup",
+        //   element: <SignUp />,
+        // },
       ],
     },
   ]);
