@@ -25,7 +25,7 @@ const Navbar = () => {
         <button className="w-24 transition-all duration-300 border h-9 rounded-2xl hover:bg-[#ffe5de] hover:border-[#ffe5de] hover:text-black font-medium">Login</button>
         <div className="flex items-center gap-10">
           <IoSearchSharp fontSize={30}/>
-          <FaShoppingCart className="m-6" fontSize={30} />
+          <Link to={'/cart'}><FaShoppingCart className="m-6" fontSize={30} /></Link>
         </div>
         <div className="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-blue-800 rounded-full right-5 top-8"> {cartItemCount} </div>
       </div>

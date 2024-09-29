@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { MdDelete } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { LuMinus } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 
-const CartRow = ({ img, title, price, Quantity, setSelectedItems, selectedItems, rowKey,setCartProducts,Cartproducts }) => {
 
-    let total = price * Quantity;
-    
+const CartRow2 = ({ img, title, price, Quantity, setSelectedItems, selectedItems, rowKey,setCartProducts,Cartproducts }) => {
+    const total = price * Quantity;
+
     function handleCheckboxClick(e) {
 
         if (e.target.checked) {
@@ -34,6 +34,7 @@ const CartRow = ({ img, title, price, Quantity, setSelectedItems, selectedItems,
 
     function increaseQuantity(e) {
         let NewProducts = Cartproducts.map((product) => {
+            console.log(e.target.closest('.div-2').getAttribute('elekey'))
             if(product.id == Number(e.target.closest('.div-2').getAttribute('elekey'))){
                 product.Quantity=product.Quantity+1;
                 let NewselectedProducts = selectedItems.map((selectedProduct)=>{
@@ -81,24 +82,33 @@ const CartRow = ({ img, title, price, Quantity, setSelectedItems, selectedItems,
        
         setCartProducts(NewProducts)
     }
-
     return (
-        <div className='px-2 py-2 flex sm:justify-between  div-2 border-[1px] rounded-md border-gray-300 items-center max-sm:flex-col max-sm:gadiv-1 max-sm:mt-4 hover:cursor-pointer max-sm:hidden mb-2 div-2' elekey={rowKey}>
-            <div className='flex items-center '>
-                <div className='self-start'><input type="checkbox" onClick={handleCheckboxClick} /></div>
-                <div className=' flex justify-center items-center'><Link to={'/product-details'}><img src={img} alt="" width={100} height={100} className='max-sm:w-[100px] ' /></Link></div>
+        <div className='flex w-full gap-2 items-center max-sm:visible sm:hidden p-4 border-2 border-gray-300 my-2 rounded-lg hover:cursor-pointer div-2' elekey={rowKey}>
+            {console.log(rowKey)}
+            <div className='self-start my-2 '>
+                <input type="checkbox" onClick={handleCheckboxClick}/>
             </div>
-            <div className='sm:basis-[65px] flex justify-center items-center text-lg font-medium hover:underline hover:underline-offset-2 hover:decoration-blue-500'><Link to={'/product-details'}>{title}</Link></div>
-            <div className='sm:basis-[90px]  flex justify-center items-center gap-1' id='price'>{price} <div className='text-md'><FaRupeeSign /></div></div>
-            <div className='flex gap-2 items-center'>
-                <div className='border-2 border-gray-400 hover:border-black hover:cursor-pointer rounded-md' onClick={increaseQuantity}><FiPlus /></div>
-                <div id='quantity'>{Quantity}</div>
-                <div className='border-2 border-gray-400 hover:border-black hover:cursor-pointer  rounded-md' onClick={decreaseQuantity}><LuMinus /></div>
+            <div className='flex w-full items-center'>
+                <div className='max-w-[100px] ' >
+                    <Link to={'/product-details'} ><img src={img} alt="image" width={100} /></Link>
+                </div>
+                <div className='w-full ml-6'>
+                    <p className='text-gray-400'>{title}</p>
+                    <p ><span className='mr-2' id='price'>200</span> <div className='text-md'><FaRupeeSign /></div></p>
+                    <div className='flex justify-between pr-4 mt-2 items-center'>
+                        <div className='bg-orange-500 py-1 px-2 rounded-sm text-white hover:cursor-pointer hover:bg-orange-600'><Link to={'/product-details'}>Place Order</Link></div>
+                        <div className='flex gap-1 items-center'>
+                            <div className='border-2 border-gray-400 hover:border-black hover:cursor-pointer rounded-md' onClick={increaseQuantity}><FiPlus/></div>
+                            <div id='quantity'>{Quantity}</div>
+                            <div className='border-2 border-gray-400 hover:border-black hover:cursor-pointer  rounded-md' onClick={decreaseQuantity}><LuMinus/></div>
+                        </div>
+                    </div>
+                    <div className='sm:basis-[90px] justify-center items-center gap-1 hidden' id='total' elekey={rowKey}>{total}<div className='text-md'><FaRupeeSign /></div></div>
+                </div>
+
             </div>
-            <div className='sm:basis-[90px] flex justify-center items-center gap-1' id='total' elekey={rowKey}>{total}<div className='text-md'><FaRupeeSign /></div></div>
-            <div className='sm:basis-[70px]  flex justify-center items-center  h-8 divx-4 rounded-md cursor-pointer gap-1'><div className='text-xl hover:scale-125 duration-100 hover:text-red-500'><MdDelete /></div></div>
         </div>
     )
 }
 
-export default CartRow
+export default CartRow2
