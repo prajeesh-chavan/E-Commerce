@@ -7,6 +7,7 @@ import Login from "./Pages/Login";
 import Products from "./Pages/Products";
 import ProductDetails from "./Pages/ProductDetails";
 import Cart from "./Pages/Cart";
+import Contact from "./Pages/Contact";
 
 
 function App() {
@@ -43,10 +44,10 @@ function App() {
           path: "cart",
           element: <Cart />,
         },
-        // {
-        //   path: "signup",
-        //   element: <SignUp />,
-        // },
+        {
+          path: "Contact",
+          element: <Contact />,
+        },
       ],
     },
   ]);
