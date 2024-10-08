@@ -48,10 +48,10 @@ function App() {
           path: "cart",
           element: <Cart />,
         },
-        // {
-        //   path: "signup",
-        //   element: <SignUp />,
-        // },
+        {
+          path: "Contact",
+          element: <Contact />,
+        },
       ],
     },
   ]);
