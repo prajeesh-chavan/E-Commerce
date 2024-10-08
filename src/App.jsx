@@ -9,7 +9,6 @@ import ProductDetails from "./Pages/ProductDetails";
 import Cart from "./Pages/Cart";
 import Contact from "./Pages/Contact";
 
-
 function App() {
   const router = createBrowserRouter([
     {
@@ -17,7 +16,7 @@ function App() {
       element: <Layout />,
       children: [
         {
-          path: "/home",
+          path: "/",
           element: <Home />,
         },
         {
